@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<meta name="viewport" content="width=device-width">
+<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Poppins">
+<link rel="stylesheet" href="signup.css">
+<script src="https://kit.fontawesome.com/a916520438.js" crossorigin="anonymous"></script>
+
+<head>
+    
+    <script src="signup.js" defer></script>
+
+</head>
+
+<body>
+    <div class="position">
+        <div class="center">
+            <form class="signUp" onsubmit="signup()">
+                <div class="registerHeading">
+                    <h3>Register</h3>
+                </div>
+                <div class="createNewAccount">
+                    <p class="createNewAccount1">Create New Account</p>
+
+                </div>
+                <div class="formInputFlex">
+                    <div class="iconBefore">
+                        <i class="fa-solid fa-user"></i>
+                    <input  class="signUpText" type="text" placeholder="User name" id="signUpUserName">
+                    <p class="red" id="signUpUserNameValidate"></p>
+                    
+                    </div>
+                    <div class="iconBefore">
+                        <i class="fa-solid fa-envelope"></i>
+                    <input  class="email" type="email" id="signupEmail" placeholder="Email">
+                    <p class="red" id="signupEmailValidate"></p>
+                    
+                    </div>
+                    <div class="iconBefore">
+                        <i class="fa-solid fa-lock"></i>
+                    <input class="password" type="password" id="signupPassword" placeholder="Password">
+                    <p class="red" id="signupPasswordValidate"></p>
+                    
+                    </div>
+                </div>
+                <div class="checkbox">
+                    <input type="checkbox">
+                    <p>Agree the <span><a href="#">terms and policy</a></span></p>
+
+                </div>
+                <div class="button" >
+                    <button type="submit" class="createNewAccountButton" id="createNewAccountButton" >Create a new account</button>
+                </div>
+                <div class="notAMember">
+                    Already have an account?
+                    <a href="index.html" target="_parent">Sign In</a>
+                </div>
+                <div class="loginFooter">
+                    <i class="fa-brands fa-facebook" ></i>
+                    <i class="fa-brands fa-google-plus"></i>
+                    <i class="fa-brands fa-square-x-twitter"></i>
+        
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>

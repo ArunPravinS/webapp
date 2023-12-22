@@ -1,0 +1,165 @@
+html{
+    background-color: #6259ca;
+
+    
+    
+}
+*{
+    margin: 0;
+    padding: 0;
+}
+body {
+    margin: 0;
+    font-family: Roboto,sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #0d0c22;
+    text-align: left;
+    
+}
+
+.center{
+    margin-left: auto!important;
+    margin-right: auto!important;
+    text-align: center!important;
+    width: 100%;
+    align-items: center;
+    text-align: center;
+    padding-top: 100px;
+    padding-bottom: 100px;
+}
+.s1{
+    
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    
+}
+.email{
+ line-height: 1.2;
+ padding: 0em 0em 0em 3em;
+    border-radius: 5px;
+    height: 40px;
+}
+.password{
+    line-height: 1.2;
+    padding: 0em 0em 0em 3em;
+    border-radius: 5px;
+    height: 40px;
+    
+   
+
+}
+input:focus{
+    outline: none;
+}
+
+
+.spanLogin{
+        font-size: 24px;
+        line-height: 1.2;
+        text-align: center;
+        width: 100%;
+        display: block;
+        padding-bottom: 30px;
+        color: #424344;
+    }
+.formInputFlex{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.form{
+    background-color: white;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        align-content: center;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+        padding: 30px;
+        /* margin-left: 20em;
+        margin-right: 20em; */
+        border-radius: 5px;
+        max-width: 320px;
+        line-height: 1.2;
+        gap: 30px;
+        
+
+    
+}
+.rightLink{
+    text-align: right;
+}
+
+a.forgetPassword{
+    font-family: Roboto,sans-serif !important;
+    font-size: 10px !important;
+    font-weight: 400 !important;
+    line-height: 1.5;
+    color: #6259ca;
+    text-decoration: none;
+}
+.loginButton{
+    line-height: 1.5;
+    color: #fff;
+    width: 100%;
+    height: 40px;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex!important;
+    justify-content: center;
+    align-items: center;
+    padding: 0 16px;
+    border-radius: 5px;
+    background-color: #6259ca;
+    border-color: #6259ca;
+}
+.button{
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+a{
+    color: #6259ca;
+    text-decoration: none;
+}
+
+.loginFooter{
+    border-top: 1px solid #eaedf1;
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+}
+.fa-brands{
+    font-size: 20px;
+    padding-top: 20px;
+    color: #6259ca;
+}
+input{
+    border: 1px solid #eee;
+    min-width: 300px
+}
+input::placeholder{
+    color:gray;
+}
+.iconBefore{
+    position: relative;
+}
+.fa-solid{
+    position: absolute;
+    color: #6259ca;
+    left: 5%;
+    top: 33%;
+}
+
+@media only screen and (max-width:400px){
+    input{
+        border: 1px solid #eee;
+        min-width: 250px
+    }
+
+}
