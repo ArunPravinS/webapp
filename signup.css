@@ -79,6 +79,9 @@ input{
 input:focus{
     outline: none;
 }
+a,button{
+    cursor: pointer;
+}
 .formInputFlex{
     display: flex;
     flex-direction: column;
