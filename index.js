@@ -14,7 +14,11 @@ function login() {
 
     // Check if login credentials are valid
     if (loginUsername === storedUsername && loginPassword === storedPassword) {
-        alert('Login successful!');
+        setTimeout(function () {
+
+            window.location.href = 'dashboard.html';
+        }, 100);
+        
     } else {
         alert('Invalid login credentials. Please try again.');
     }
