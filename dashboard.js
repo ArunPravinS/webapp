@@ -103,4 +103,36 @@ mainnavbutton.addEventListener('click', function(event) {
   drawer.style.width = "200px"
   event.stopPropagation();
 });
+// running element
+function updateRunningNumber(spanId, endValue, increment, includeSymbol) {
+  
+  var spanElement = document.getElementById(spanId);
+
+  
+  var currentValue = 0;
+
+  // Update the number every 100 milliseconds
+  var intervalId = setInterval(function () {
+    
+    currentValue += increment;
+
+    // Update the content of the span with or without the symbol
+    if (includeSymbol) {
+      spanElement.textContent = '$' + currentValue.toLocaleString(); // Format the number with commas
+    } else {
+      spanElement.textContent = currentValue.toLocaleString(); // Format the number with commas
+    }
+
+    // Stop the interval when the end value is reached or exceeded
+    if (currentValue >= endValue) {
+      clearInterval(intervalId);
+    }
+  }, 1); 
+}
+
+// Call the function to start updating the running numbers
+updateRunningNumber('runningNumber1', 14516, 100, true);
+updateRunningNumber('runningNumber2', 34516, 200, true);
+updateRunningNumber('runningNumber3', 54516, 200, false);
+updateRunningNumber('runningNumber4', 34516, 200, false);
 
