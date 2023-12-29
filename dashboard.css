@@ -20,7 +20,9 @@ ul {
 
 .nav {
     position: relative;
-    z-index: 1;
+    z-index: 3;
+    position: sticky;
+    
 
 
 }
@@ -48,7 +50,7 @@ li {
     flex-direction: column;
     gap: 20px;
     transition: width ease-in-out 0.3s;
-
+    
 }
 
 .drawer:hover {
@@ -1143,3 +1145,137 @@ p.navprofileinnersub1light {
     color: orange;
     font-weight: 600;
 }
+.card421{
+    
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    
+}
+table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+
+  th, td {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+  }
+
+  th {
+    background-color: #f2f2f2;
+  }
+
+  .edit-btn {
+    cursor: pointer;
+    color: white;
+    background-color: blue;
+    padding: 4px;
+    border-radius: 4px;
+    
+  }
+  .delete-btn{
+    cursor: pointer;
+    color: white;
+    background-color: red;
+    padding: 4px;
+    border-radius: 4px;
+
+  }
+  .tableimage{
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .timage img{
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: center;
+    width: 40px;
+    height: 40px;
+  }
+  .tdata{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: flex-start;
+  }
+  .tdatap{
+    font-size: 14px;
+    color:#212519;
+    font-weight: 600;
+  }
+  .tdate{
+    font-size: 14px;
+    color:#212519;
+    
+    font-weight: 600;
+  }
+  .tamount{
+    font-size: 14px;
+    color:#212519;
+    
+    font-weight: 600;
+
+  }
+.tstatus{
+    color: green;
+    font-weight: 600;
+}
+.tstatus1{
+    color: red;
+    font-weight: 600;
+}
+.tstatus2{
+    color: #f7b731;
+    font-weight: 600;
+
+}
+.tableHeader h3{
+    font-size: 16px;
+    color: #0d0c22;
+    
+    padding-bottom: 8px;
+}
+.tableMain{
+    background-color: white;
+    padding: 16px;
+    border-radius: 10px;
+    margin-top: 30px;
+}
+.tableHeader{
+    border-bottom: 1px solid #76839A;
+    
+}
+.tableInner{
+    padding: 30px;
+}
+.tablelistitems1{
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 20px;
+}
+.search{
+    padding: 4px;
+    border-radius: 5px;
+}
+.select{
+    border: none;
+    padding: 4px;
+    box-shadow: 0px 0px 2px 2px #76839A;
+    border-radius: 5px;
+}
+.tdflex{
+    display: flex;
+    gap: 10px;
+    
+}
+.dashheadfixed {
+    position: sticky;
+    top: 0;
+    z-index: 2;
+    
+   
+    background-color: #fff;}
+   
