@@ -553,6 +553,8 @@ signout.addEventListener('click',signo)
 signout1.addEventListener('click',signo)
 function signo(){
   window.location.href="index.html"
+  localStorage.clear()
+  history.replaceState(null, null, window.location.href);
 }
 
 
