@@ -490,5 +490,70 @@ function dele(index){
   updateTable();}
 
 }
+function edit(index) {
+  if(confirm("Do You Want to edit this data")){
+  const selectedData = jsonTable[index];
+
+  // Assuming you have a modal with input fields
+  const modal = document.getElementById('editModal');
+  let modalhide=document.querySelector(".modalhide")
+  const nameInput = document.getElementById('editNameInput');
+  const emailInput = document.getElementById('editEmailInput');
+  const DateInput = document.getElementById('editDateInput');
+  const AmountInput = document.getElementById('editAmountInput');
+  const StatusInput = document.getElementById('editStatusInput');
+  
+
+ 
+  nameInput.value = selectedData.name;
+  emailInput.value = selectedData.email;
+  DateInput.value = selectedData.date;
+  AmountInput.value = selectedData.amount;
+  StatusInput.value = selectedData.status;
+ 
+
+ 
+  modal.style.display = 'block';
+  modalhide.style.display='none'
+
+  // Remove existing event listener (if any)
+  const updateButton = document.getElementById('updateButton');
+  updateButton.removeEventListener('click', updateButtonClickHandler);
+
+
+  updateButton.addEventListener('click', updateButtonClickHandler);
+
+  // Define the updateButtonClickHandler function
+  function updateButtonClickHandler() {
+    
+    jsonTable[index].name = nameInput.value;
+    jsonTable[index].email = emailInput.value;
+    jsonTable[index].date = DateInput.value;
+    jsonTable[index].amount = AmountInput.value;
+    jsonTable[index].status = StatusInput.value;
+    
+  
+
+    
+    modal.style.display = 'none';
+    modalhide.style.display='block'
+
+    
+    updateTable();
+
+    
+    updateButton.removeEventListener('click', updateButtonClickHandler);
+  }
+}
+}
+let signout = document.querySelector('.signout')
+let signout1 = document.querySelector('.signout1')
+
+signout.addEventListener('click',signo)
+signout1.addEventListener('click',signo)
+function signo(){
+  window.location.href="index.html"
+}
+
 
 
