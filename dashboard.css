@@ -175,7 +175,7 @@ li:hover {
     /* box-shadow: 0 2px 3px #0404071a; */
     background: #fff;
     border: 1px solid #eaedf1;
-    width: 350px;
+    max-width: 350px;
     height: 40px;
     position: relative;
     padding: 0px 40px 0px 20px
@@ -1363,9 +1363,12 @@ table {
 
 
   }
-  @media only screen and (min-width:300px) and (max-width:990px)
+  .phone{
+    display: none;
+  }
+  @media only screen and (min-width:300px) and (max-width:1000px)
   {
-    /* .dashboard{
+    .dashboard{
     margin-left: auto;
     margin-right: auto;
     padding-left: 15px;
@@ -1374,7 +1377,7 @@ table {
     display: flex;
     flex-direction: column;
     position: relative;
-} */
+}
 .dashboardcontentcard{
     grid-template-columns: 1fr;
 }
@@ -1388,7 +1391,61 @@ table {
     grid-template-columns: 1fr;
 }
 .rightnotification{
-    transform: translate(290%,0);
+    transform: translate(0,0);
 }
+.tableInner{
+    width: 100%;
+    overflow-x: auto;
+    padding-top: 30px;
+    /* padding-left: 3px; */
+    padding: 0;
+}
+#myChart{
+    padding: 0px;
+}
+.tablelistitems1{
+    padding-top: 20px;
+    padding-left: 3px;
+    /* padding-left: 3px; */
+}
+#editModal.active {
+    top: 0%;
+    transform: translate(0%,25%);
+}
+/* .dashheadfixed{
+    display:none
+} */
+#dataTable{
+    width: 100%;
+    overflow-x: auto;
+    padding-top: 30px;
+    padding-left: 3px;
+    padding: 0;
+
+}
+.mainnav{
+    flex-direction: column;
+    gap: 20px;
+}
+.dashboard{
+    padding-left: 0px;
+}
+.lap{
+    display: none;
+}
+.phone{
+    display: block;
+}
+
   }
-   
+
+  @media only screen and (max-width:375px){
+    .rightmainnav{
+        gap: 8px;
+    }
+  }
+  @media only screen and (min-width:1024px) and (max-width:1100px){
+    .dashboard{
+        width: 900px;
+    }
+  }

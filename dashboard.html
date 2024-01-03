@@ -7,13 +7,14 @@
 <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
 <script src="https://kit.fontawesome.com/a916520438.js" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+
 <head>
     <script src="dashboard.js" defer></script>
 
 </head>
 
 <body>
-    
+
     <div class="modalhide1">
         <div class="nav">
             <div class="drawer">
@@ -78,6 +79,8 @@
 
                 </ul>
                 <ul>
+
+
                     <div class="hidden">Pages</div>
                     <li><a class="flexa" href="#">
                             <span class="icon"><i class="fa-solid fa-newspaper"></i></span>
@@ -197,10 +200,20 @@
             <div class="dashboard">
                 <div class="mainnav">
                     <div class="leftmainnav">
-                        <i class="fa-solid fa-bars-staggered" style="font-size: 24px;"></i>
-                        <div class="inputleftmainnav">
-                            <input type="text" class="leftmainnavinput" placeholder="search for results...">
-                            <i class="fa-solid fa-magnifying-glass"></i>
+                        <div class="lap">
+                            <i class="fa-solid fa-bars-staggered"id="lap" style="font-size: 24px;"></i>
+                        </div>
+                        <div class="phone">
+                            <i class="fa-solid fa-bars-staggered" id="phone" style="font-size: 24px;"></i>
+                        </div>
+                        <div class="phone">
+                            <img src="image/logo-3-2c3d9de6.png">
+                        </div>
+                        <div class="lap">
+                            <div class="inputleftmainnav">
+                                <input type="text" class="leftmainnavinput" placeholder="search for results...">
+                                <i class="fa-solid fa-magnifying-glass"></i>
+                            </div>
                         </div>
                     </div>
                     <div class="rightmainnav">
@@ -337,9 +350,9 @@
                                     <i class="fa-solid fa-question"></i>
                                     <p>Need help</p>
                                 </div>
-                                <div  style="cursor: pointer;" class="navprofileinnersub signout">
+                                <div style="cursor: pointer;" class="navprofileinnersub signout">
                                     <i class="fa-solid fa-right-from-bracket"></i>
-                                    <p >Sign out</p>
+                                    <p>Sign out</p>
                                 </div>
                             </div>
                         </div>
@@ -655,7 +668,7 @@
         </div>
     </div>
     <div id="editModal" class="modalhide">
-        
+
         <div id="editmodalflex">
             <div class="f1 " style="text-align: right;">
                 <i class="fa-solid fa-xmark" onclick="closeModal()"></i>
@@ -690,40 +703,40 @@
 
             <button id="updateButton">Update</button>
         </div>
-     
+
     </div>
     <div class="dashboard">
-    <canvas id="myChart" style="width:100%;max-width:600px;"></canvas>
+        <canvas id="myChart" style="width:100%;max-width:600px;"></canvas>
 
-    <script>
-    const xValues = ["jan","feb","mar","apr","may","jun","jul","aug","sep","oct","nov","dec"];
-    
-    new Chart("myChart", {
-      type: "line",
-      data: {
-        labels: xValues,
-        datasets: [{ 
-          data: [20,60,40,80,120,100,140,180,160,200,240,220],
-          label: "TotalOrders",
-          borderColor: "red",
-          fill: true
-        }, { 
-          data: [15,45,30,60,90,75,105,120,135,180,200,165],
-          label: "TotalSales",
-          borderColor: "green",
-          fill: true
-        }]
-      },
-      options: {
-        legend: {display: true}
-      }
-    });
-    </script>
+        <script>
+            const xValues = ["jan", "feb", "mar", "apr", "may", "jun", "jul", "aug", "sep", "oct", "nov", "dec"];
+
+            new Chart("myChart", {
+                type: "line",
+                data: {
+                    labels: xValues,
+                    datasets: [{
+                        data: [20, 60, 40, 80, 120, 100, 140, 180, 160, 200, 240, 220],
+                        label: "TotalOrders",
+                        borderColor: "red",
+                        fill: true
+                    }, {
+                        data: [15, 45, 30, 60, 90, 75, 105, 120, 135, 180, 200, 165],
+                        label: "TotalSales",
+                        borderColor: "green",
+                        fill: true
+                    }]
+                },
+                options: {
+                    legend: { display: true }
+                }
+            });
+        </script>
     </div>
 
 
 </body>
 
-    
+
 
 </html>

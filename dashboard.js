@@ -29,10 +29,19 @@ document.addEventListener('click', function (event) {
   if (!event.target.closest('.notificationri') && !event.target.closest('.rightnotification')) {
     rightnotification.style.display = 'none';
   }
-  if (!event.target.closest('.fa-bars-staggered') && !event.target.closest('.drawer')) {
+  if (!event.target.closest('#lap') && !event.target.closest('.drawer')) {
     drawer.style.width="30px"
+    // drawer.style.display="none"
     for(i=0;i<hidden.length;i++){
       hidden[i].style.display="none"}
+      
+  }
+  if (!event.target.closest('#phone') && !event.target.closest('.drawer')) {
+    drawer.style.width="30px"
+     drawer.style.display="none"
+    for(i=0;i<hidden.length;i++){
+      hidden[i].style.display="none"}
+      
       
   }
 });
@@ -83,7 +92,8 @@ close.addEventListener('click',function(event){
   event.stopPropagation()
 
 })
-let mainnavbutton=document.querySelector(".fa-bars-staggered")
+let mainnavbutton=document.querySelector("#lap")
+let mab=document.querySelector("#phone")
 let drawer=document.querySelector(".drawer")
 let dashboard=document.querySelector(".dashboard")
 let hidden=document.getElementsByClassName("hidden")
@@ -101,6 +111,17 @@ mainnavbutton.addEventListener('click', function(event) {
     hidden[i].style.display = "block";
   }
   drawer.style.width = "200px"
+  // drawer.style.display="block"
+  event.stopPropagation();
+});
+mab.addEventListener('click', function(event) {
+  // drawer.style.width=(drawer.style.width=="30px")?"200px":"30px"
+  
+  for (var i = 0; i < hidden.length; i++) {
+    hidden[i].style.display = "block";
+  }
+  drawer.style.width = "200px"
+  drawer.style.display="block"
   event.stopPropagation();
 });
 // running element
