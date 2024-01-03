@@ -492,6 +492,19 @@ function dele(index){
 }
 function edit(index) {
   if(confirm("Do You Want to edit this data")){
+    function openModal() {
+      document.getElementById('editModal').classList.add('active');
+  }
+  openModal()
+
+  // // Add JavaScript logic to close the modal when needed
+  // // For example, you can close the modal when the "Update" button is clicked
+  // document.getElementById('updateButton').addEventListener('click', function() {
+  //     // Your update logic here
+
+  //     // Close the modal
+  //     document.getElementById('editModal').classList.remove('active');
+  // });
   const selectedData = jsonTable[index];
 
   // Assuming you have a modal with input fields
@@ -513,8 +526,8 @@ function edit(index) {
  
 
  
-  modal.style.display = 'block';
-  modalhide.style.display='none'
+  // modal.style.display = 'block';
+  // modalhide.style.display='none'
 
   // Remove existing event listener (if any)
   const updateButton = document.getElementById('updateButton');
@@ -535,8 +548,9 @@ function edit(index) {
   
 
     
-    modal.style.display = 'none';
-    modalhide.style.display='block'
+    // modal.style.display = 'none';
+    // modalhide.style.display='block'
+    document.getElementById('editModal').classList.remove('active');
 
     
     updateTable();
@@ -555,6 +569,13 @@ function signo(){
   window.location.href="index.html"
   localStorage.clear()
   history.replaceState(null, null, window.location.href);
+  window.addEventListener('popstate', function () {
+    history.pushState(null, null, window.location.href);
+  });
+}
+
+function closeModal(){
+  document.getElementById('editModal').classList.remove('active')
 }
 
 

@@ -6,14 +6,15 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
 <script src="https://kit.fontawesome.com/a916520438.js" crossorigin="anonymous"></script>
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
 <head>
     <script src="dashboard.js" defer></script>
 
 </head>
 
 <body>
-    <div class="modalhide">
+    
+    <div class="modalhide1">
         <div class="nav">
             <div class="drawer">
                 <div class="logo">
@@ -653,8 +654,12 @@
 
         </div>
     </div>
-    <div id="editModal" style="display: none;">
+    <div id="editModal" class="modalhide">
+        
         <div id="editmodalflex">
+            <div class="f1 " style="text-align: right;">
+                <i class="fa-solid fa-xmark" onclick="closeModal()"></i>
+            </div>
             <div class="f1">
                 <label for="editNameInput">Name:</label>
                 <input type="text" id="editNameInput">
@@ -685,9 +690,40 @@
 
             <button id="updateButton">Update</button>
         </div>
+     
+    </div>
+    <div class="dashboard">
+    <canvas id="myChart" style="width:100%;max-width:600px;"></canvas>
+
+    <script>
+    const xValues = ["jan","feb","mar","apr","may","jun","jul","aug","sep","oct","nov","dec"];
+    
+    new Chart("myChart", {
+      type: "line",
+      data: {
+        labels: xValues,
+        datasets: [{ 
+          data: [20,60,40,80,120,100,140,180,160,200,240,220],
+          label: "TotalOrders",
+          borderColor: "red",
+          fill: true
+        }, { 
+          data: [15,45,30,60,90,75,105,120,135,180,200,165],
+          label: "TotalSales",
+          borderColor: "green",
+          fill: true
+        }]
+      },
+      options: {
+        legend: {display: true}
+      }
+    });
+    </script>
     </div>
 
 
 </body>
+
+    
 
 </html>
