@@ -21,11 +21,14 @@ ul {
 .nav {
     position: relative;
     z-index: 3;
-    position: sticky;
     
+   
+   
     
-
-
+}
+.scroll{
+    height: 100vh;
+    overflow-y: scroll;
 }
 
 li {
@@ -42,6 +45,28 @@ li {
 .drawer {
     position: absolute;
     background-color: white;
+    
+    left: 0;
+    top: 0;
+    width: 30px;
+    
+    padding: 15px;
+    
+   
+    overflow-x: hidden;
+    /* overflow-y: scroll; */
+    
+    
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    transition: width ease-in-out 0.3s;
+    
+    
+}
+.drawer1 {
+    position: absolute;
+    background-color: white;
     top: 0;
     width: 30px;
     
@@ -56,6 +81,10 @@ li {
 }
 
 .drawer:hover {
+    width: 200px;
+    transition: all ease-in-out .5s;
+}
+.drawer1:hover {
     width: 200px;
     transition: all ease-in-out .5s;
 }
@@ -136,6 +165,9 @@ li:hover {
 }
 
 .drawer:hover .hidden {
+    display: block;
+}
+.drawer1:hover .hidden {
     display: block;
 }
 
@@ -1259,13 +1291,16 @@ table {
     padding-bottom: 20px;
 }
 .search{
-    padding: 4px;
+    padding: 4px 4px 4px 12px ;
     border-radius: 5px;
+    border: 1px solid #eaedf1!important;
+    min-height: 30px;
 }
 .select{
-    border: none;
+    min-height: 35px;
     padding: 4px;
-    box-shadow: 0px 0px 2px 2px #76839A;
+    border: 1px solid #eaedf1!important;
+   
     border-radius: 5px;
 }
 .tdflex{
@@ -1363,6 +1398,9 @@ table {
 
 
   }
+  .lap{
+    display: block;
+  }
   .phone{
     display: none;
   }
@@ -1382,6 +1420,9 @@ table {
     grid-template-columns: 1fr;
 }
 .drawer{
+    display: none;
+}
+.drawer1{
     display: none;
 }
 .dashheadfixed{
@@ -1444,8 +1485,63 @@ table {
         gap: 8px;
     }
   }
-  @media only screen and (min-width:1024px) and (max-width:1100px){
+  @media only screen and (min-width:1001px) and (max-width:1100px){
     .dashboard{
-        width: 900px;
+        width: 880px;
     }
   }
+  #pagination{
+    padding-top: 8px;
+
+  }
+  #prevPage:hover,#nextPage:hover{
+    padding: 8px;
+    border-radius: 5px;
+    border: none;
+    box-shadow: 0px 0px 2px 2px #76839A;
+  }
+  #prevPage,#nextPage{
+    padding: 8px;
+    border-radius: 5px;
+    border: none;
+   
+  }
+  #pagination{
+    text-align: right;
+  }
+  /* #navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    z-index: 3;
+    background-color: white; 
+    width: 60px; 
+  
+    
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+#content {
+    
+    overflow-y: auto; /* Allow vertical scrolling for the content 
+} */
+#navbar{
+    position: sticky;
+    left: 0px;
+    top: 0;
+    z-index: 3;
+   
+    
+    
+}
+  
+
+
+
+
+  
+
+ 

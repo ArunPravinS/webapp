@@ -34,17 +34,21 @@ document.addEventListener('click', function (event) {
     // drawer.style.display="none"
     for(i=0;i<hidden.length;i++){
       hidden[i].style.display="none"}
+      elementWithHoverEffect.classList.add('drawer');
       
   }
-  if (!event.target.closest('#phone') && !event.target.closest('.drawer')) {
-    drawer.style.width="30px"
-     drawer.style.display="none"
+  if (!event.target.closest('#phone') && !event.target.closest('.drawer1')) {
+    
+     drawer1.style.display="none"
+    //  drawer1.style.transition="all .3s ease-in-out "
     for(i=0;i<hidden.length;i++){
       hidden[i].style.display="none"}
       
       
   }
 });
+const elementWithHoverEffect = document.getElementById('hoverelement');
+
 // set display none
 let notificationinner = document.querySelector(".notificationinner")
 let bell = document.querySelector(".fa-bell")
@@ -95,6 +99,7 @@ close.addEventListener('click',function(event){
 let mainnavbutton=document.querySelector("#lap")
 let mab=document.querySelector("#phone")
 let drawer=document.querySelector(".drawer")
+let drawer1=document.querySelector(".drawer1")
 let dashboard=document.querySelector(".dashboard")
 let hidden=document.getElementsByClassName("hidden")
 // mainnavbutton.addEventListener('click',function(event){
@@ -120,8 +125,8 @@ mab.addEventListener('click', function(event) {
   for (var i = 0; i < hidden.length; i++) {
     hidden[i].style.display = "block";
   }
-  drawer.style.width = "200px"
-  drawer.style.display="block"
+  drawer1.style.width = "200px"
+  drawer1.style.display="block"
   event.stopPropagation();
 });
 // running element
@@ -372,7 +377,7 @@ const jsonTable = [
   {
     sno: "01",
     imageSrc: "image/2-84a11ca2.jpg",
-    name: "jack",
+    name: "mary",
     email: "jack@gmail.com",
     date: "03/09/2020",
     amount: "879",
@@ -381,7 +386,7 @@ const jsonTable = [
   {
     sno: "02",
     imageSrc: "image/1-4d4d5dca.jpg",
-    name: "jack",
+    name: "lucy",
     email: "jack@gmail.com",
     date: "03/09/2020",
     amount: "879",
@@ -399,7 +404,7 @@ const jsonTable = [
   {
     sno: "04",
     imageSrc: "image/2-84a11ca2.jpg",
-    name: "jack",
+    name: "dia",
     email: "jack@gmail.com",
     date: "03/09/2020",
     amount: "879",
@@ -408,7 +413,7 @@ const jsonTable = [
   {
     sno: "05",
     imageSrc: "image/1-4d4d5dca.jpg",
-    name: "jack",
+    name: "anto",
     email: "jack@gmail.com",
     date: "03/09/2020",
     amount: "879",
@@ -417,7 +422,7 @@ const jsonTable = [
   {
     sno: "06",
     imageSrc: "image/15-206057a7.jpg",
-    name: "jack",
+    name: "murugan",
     email: "jack@gmail.com",
     date: "03/09/2020",
     amount: "879",
@@ -426,7 +431,7 @@ const jsonTable = [
   {
     sno: "07",
     imageSrc: "image/2-84a11ca2.jpg",
-    name: "jack",
+    name: "jackline",
     email: "jack@gmail.com",
     date: "03/09/2020",
     amount: "879",
@@ -435,7 +440,7 @@ const jsonTable = [
   {
     sno: "08",
     imageSrc: "image/1-4d4d5dca.jpg",
-    name: "jack",
+    name: "jansy",
     email: "jack@gmail.com",
     date: "03/09/2020",
     amount: "879",
@@ -444,15 +449,17 @@ const jsonTable = [
   {
     sno: "09",
     imageSrc: "image/15-206057a7.jpg",
-    name: "jack",
+    name: "Arun",
     email: "jack@gmail.com",
     date: "03/09/2020",
     amount: "879",
     status: "Pending"
   }
 ];
-let renderTable=(data,index)=>`<tr>
-<td><p class="tablesno">${index+1}</p></td>
+let renderTable=(data,index)=>{
+  const originalIndex = (currentPage - 1) * rowsPerPage + index + 1;
+  const tableRow =`<tr>
+<td><p class="tablesno">${originalIndex}</p></td>
 <td>
   <div class="tableimage">
     <div class="timage">
@@ -470,12 +477,12 @@ let renderTable=(data,index)=>`<tr>
 <td><p class="${getStatusClass(data.status)}">${data.status}</p></td>
 <td>
 <div class=tdflex>
-  <i class="fa-regular fa-pen-to-square edit-btn" onclick=edit(${index})></i>
-  <i class="fa-solid fa-trash delete-btn"onclick=dele(${index})></i>
+  <i class="fa-regular fa-pen-to-square edit-btn" onclick=edit(${originalIndex-1})></i>
+  <i class="fa-solid fa-trash delete-btn"onclick=dele(${originalIndex-1})></i>
 </div>
 </td>
 </tr>
-`;
+`;return tableRow;}
 const getStatusClass = (status) => {
   switch (status.toLowerCase()) {
     case 'success':
@@ -488,20 +495,80 @@ const getStatusClass = (status) => {
       return '';
   }
 };
-const tableContainer=document.getElementById('render');
-// tableContainer.innerHTML=jsonTable.map(renderTable).join('');
+// const tableContainer=document.getElementById('render');
+// // tableContainer.innerHTML=jsonTable.map(renderTable).join('');
+// const rowCountSelect = document.getElementById('rowCountSelect');
+
+//     const updateTable = () => {
+//       const selectedRowCount = parseInt(rowCountSelect.value);
+//       const tableRows = jsonTable.slice(0, selectedRowCount).map(renderTable).join('');
+//       tableContainer.innerHTML = tableRows;
+//     };
+
+//     rowCountSelect.addEventListener('change', updateTable);
+
+//     // Initial table render
+//     updateTable();
+
+
+const tableContainer = document.getElementById('render');
 const rowCountSelect = document.getElementById('rowCountSelect');
+const paginationContainer = document.getElementById('pagination');
+const currentPageElement = document.getElementById('currentPage');
+const totalPagesElement = document.getElementById('totalPages');
 
-    const updateTable = () => {
-      const selectedRowCount = parseInt(rowCountSelect.value);
-      const tableRows = jsonTable.slice(0, selectedRowCount).map(renderTable).join('');
-      tableContainer.innerHTML = tableRows;
-    };
+let currentPage = 1;
+let rowsPerPage = parseInt(rowCountSelect.value);
 
-    rowCountSelect.addEventListener('change', updateTable);
+const displayData = () => {
+    const startIndex = (currentPage - 1) * rowsPerPage;
+    const endIndex = startIndex + rowsPerPage;
+    const dataToShow = jsonTable.slice(startIndex, endIndex);
 
-    // Initial table render
-    updateTable();
+    tableContainer.innerHTML = dataToShow.map(renderTable).join('');
+    currentPageElement.innerText = currentPage;
+    totalPagesElement.innerText = Math.ceil(jsonTable.length / rowsPerPage);
+};
+
+const updateTable = () => {
+    rowsPerPage = parseInt(rowCountSelect.value);
+    currentPage = 1;
+    displayData();
+    updatePaginationButtons();
+};
+
+const prevPage = () => {
+    if (currentPage > 1) {
+        currentPage--;
+        displayData();
+        updatePaginationButtons();
+    }
+};
+
+const nextPage = () => {
+    const totalPages = Math.ceil(jsonTable.length / rowsPerPage);
+    if (currentPage < totalPages) {
+        currentPage++;
+        displayData();
+        updatePaginationButtons();
+    }
+};
+
+const updatePaginationButtons = () => {
+    const prevButton = document.getElementById('prevPage');
+    const nextButton = document.getElementById('nextPage');
+
+    prevButton.disabled = currentPage === 1;
+    nextButton.disabled = currentPage === Math.ceil(jsonTable.length / rowsPerPage);
+};
+
+rowCountSelect.addEventListener('change', updateTable);
+
+// Initial table render
+updateTable();
+
+
+
  
 
 
@@ -518,14 +585,7 @@ function edit(index) {
   }
   openModal()
 
-  // // Add JavaScript logic to close the modal when needed
-  // // For example, you can close the modal when the "Update" button is clicked
-  // document.getElementById('updateButton').addEventListener('click', function() {
-  //     // Your update logic here
-
-  //     // Close the modal
-  //     document.getElementById('editModal').classList.remove('active');
-  // });
+ 
   const selectedData = jsonTable[index];
 
   // Assuming you have a modal with input fields
@@ -598,6 +658,8 @@ function signo(){
 function closeModal(){
   document.getElementById('editModal').classList.remove('active')
 }
+
+
 
 
 
